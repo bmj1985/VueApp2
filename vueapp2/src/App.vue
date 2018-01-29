@@ -1,19 +1,41 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <DinoCard :dinoListData="listingData" :skillListData="skillsData"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import TheHeader from './components/TheHeader';
+import DinoCard from './components/DinoCard';
+import TheFooter from './components/TheFooter';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: { TheHeader, DinoCard, TheFooter },
+  data() {
+    return {
+      apiURL: '../static/dinosaurs.json',
+      listingData: [],
+      skillsData: []
+    };
+  },
+  mounted() {
+    this.getListings();
+  },
+  methods: {
+    getListings() {
+      fetch(this.apiURL)
+        .then(response => response.json())
+        .then(response => {
+          this.listingData = response;
+          this.skillsData = this.listingData.map(dinoObject => {
+            return dinoObject.skills;
+          });
+          return this.skillsData;
+        });
+    }
   }
-}
+};
 </script>
 
 <style>
