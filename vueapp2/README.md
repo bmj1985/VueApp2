@@ -1,6 +1,6 @@
 # vueapp2
 
-> Galvanize-Dinosaurs Drill 2 Website refactor.
+> My second vue app. Practising with Galvanize Dinosaurs Drill 2
 
 ## Build Setup
 

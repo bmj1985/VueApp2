@@ -1,7 +1,7 @@
 {
   "name": "vueapp2",
   "version": "1.0.0",
-  "description": "Galvanize-Dinosaurs Drill 2 Website refactor.",
+  "description": "My second vue app. Practising with Galvanize Dinosaurs Drill 2",
   "author": "Brandon Johnson",
   "private": true,
   "scripts": {
