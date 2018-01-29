@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <header id="TheHeader">
 
-  </div>
+  </header>
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'TheHeader'
+};
 </script>
 
 <style scoped>
