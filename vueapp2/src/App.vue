@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-    <DinoCard :dinoListData="listingData" :skillListData="skillsData"/>
+    <TheHeader/>
+    <main>
+        <section id="profiles-container">
+      <h2>Profiles</h2>
+      <DinoCard :dinoListData="listingData"/>
+    </section>
+  
+    </main>
+    <TheFooter/>
   </div>
 </template>
 
@@ -15,8 +23,7 @@ export default {
   data() {
     return {
       apiURL: '../static/dinosaurs.json',
-      listingData: [],
-      skillsData: []
+      listingData: []
     };
   },
   mounted() {
@@ -28,10 +35,6 @@ export default {
         .then(response => response.json())
         .then(response => {
           this.listingData = response;
-          this.skillsData = this.listingData.map(dinoObject => {
-            return dinoObject.skills;
-          });
-          return this.skillsData;
         });
     }
   }
@@ -40,11 +43,17 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 0 30px 0 30px;
+  padding: 0;
+  font-family: sans-serif;
+  color: #1b997a;
+  display: grid;
+  grid-template-rows: 15% 75% 10%;
+}
+
+main {
+  grid-row: 2/3;
 }
 </style>
