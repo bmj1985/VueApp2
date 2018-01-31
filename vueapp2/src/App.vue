@@ -5,7 +5,7 @@
       <section id="profiles-container">
       <h2>Profiles</h2>
       <ul id="profiles">
-        <DinoCard :dinos="dinoProfiles"/>
+        <DinoCard v-for="dino in dinos" :key="dino.name" :dino="dinoProfiles"/>
       </ul>
     </section>
     </main>
@@ -36,7 +36,7 @@ export default {
       fetch(this.apiURL)
         .then(response => response.json())
         .then(response => {
-          console.log(response);
+          console.log(response[0]);
           this.dinoProfiles = response;
         });
     }

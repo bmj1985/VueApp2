@@ -13,8 +13,9 @@
 export default {
   name: 'SkillList',
   props: {
-    name: 'skills',
-    type: Array
+    skills: {
+      type: Array
+    }
   }
 };
 </script>

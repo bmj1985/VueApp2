@@ -1,8 +1,8 @@
 <template>
       <div class="profile-card">
-          <header class="profile-header" v-for="dino in dinos">
-          <img :src="dino.image"/>
-          <h2>{{dino.name}}</h2>
+          <header class="profile-header">
+          <img :src="profile.image"/>
+          <h2>{{profile.name}}</h2>
           </header>
           <SkillList :skillsList="skills"/>
       </div>
