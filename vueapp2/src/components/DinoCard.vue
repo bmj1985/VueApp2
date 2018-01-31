@@ -1,15 +1,11 @@
 <template>
-  <ul id="profiles">
-    <li>
       <div class="profile-card">
-          <header class="profile-header" v-for="dino in dinoListData">
+          <header class="profile-header" v-for="dino in dinos">
           <img :src="dino.image"/>
           <h2>{{dino.name}}</h2>
-          <SkillList :skillListData="eachSkill"/>
           </header>
+          <SkillList :skillsList="skills"/>
       </div>
-    </li>
-  </ul>
 </template>
 
 <script>
@@ -18,13 +14,13 @@ import SkillList from '../components/SkillList';
 export default {
   name: 'DinoCard',
   components: { SkillList },
+  props: ['dinos'],
   data() {
     return {
       apiURL: '../static/dinosaurs.json',
-      skillsData: []
+      skillsList: []
     };
   },
-  props: ['dinoListData'],
   mounted() {
     this.getSkillsList();
   },
@@ -33,9 +29,9 @@ export default {
       fetch(this.apiURL)
         .then(response => response.json())
         .then(response => {
-          let eachSkill = (this.skillsData = response.map(dinoObject => {
-            return dinoObject.skills;
-          }));
+          this.skillsList = response.forEach(currVal => {
+            return currVal.skills;
+          });
         });
     }
   }

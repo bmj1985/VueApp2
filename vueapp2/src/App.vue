@@ -2,11 +2,12 @@
   <div id="app">
     <TheHeader/>
     <main>
-        <section id="profiles-container">
+      <section id="profiles-container">
       <h2>Profiles</h2>
-      <DinoCard :dinoListData="listingData"/>
+      <ul id="profiles">
+        <DinoCard :dinos="dinoProfiles"/>
+      </ul>
     </section>
-  
     </main>
     <TheFooter/>
   </div>
@@ -23,7 +24,8 @@ export default {
   data() {
     return {
       apiURL: '../static/dinosaurs.json',
-      listingData: []
+      dinoProfiles: [],
+      skillsList: []
     };
   },
   mounted() {
@@ -34,7 +36,8 @@ export default {
       fetch(this.apiURL)
         .then(response => response.json())
         .then(response => {
-          this.listingData = response;
+          console.log(response);
+          this.dinoProfiles = response;
         });
     }
   }
@@ -55,5 +58,14 @@ export default {
 
 main {
   grid-row: 2/3;
+}
+
+section {
+  padding: 0 20px 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, x100%);
+  grid-gap: 10px;
+  margin: 0 auto;
+  width: 50%;
 }
 </style>
