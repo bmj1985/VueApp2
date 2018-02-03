@@ -5,7 +5,7 @@
       <section id="profiles-container">
       <h2>Profiles</h2>
       <ul id="profiles">
-        <DinoCard :dinos="dinoProfiles"/>
+        <DinoCard v-for="dino in dinoProfiles" :dino="dino"/>
       </ul>
     </section>
     </main>
@@ -17,10 +17,11 @@
 import TheHeader from './components/TheHeader';
 import DinoCard from './components/DinoCard';
 import TheFooter from './components/TheFooter';
+import SkillList from '@/components/SkillList';
 
 export default {
   name: 'App',
-  components: { TheHeader, DinoCard, TheFooter },
+  components: { TheHeader, DinoCard, TheFooter, SkillList },
   data() {
     return {
       apiURL: '../static/dinosaurs.json',
@@ -36,6 +37,7 @@ export default {
       fetch(this.apiURL)
         .then(response => response.json())
         .then(response => {
+          console.log('response', Object.assign({}, response));
           console.log(response);
           this.dinoProfiles = response;
         });

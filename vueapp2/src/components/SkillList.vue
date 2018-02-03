@@ -3,7 +3,7 @@
   <section class="skills-container" v-for="skill in skills">
     <h4>Skills</h4>
     <ul class="skills-list">
-      <li>{{skill}}.</li>
+      <li>{{skill}}</li>
    </ul>
   </section>
   </div>
@@ -13,7 +13,7 @@
 export default {
   name: 'SkillList',
   props: {
-    name: 'skills',
+    name: 'skill',
     type: Array
   }
 };
