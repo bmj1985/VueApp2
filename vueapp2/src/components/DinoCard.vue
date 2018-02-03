@@ -1,10 +1,13 @@
 <template>
       <div class="profile-card">
-          <header class="profile-header">
+          <header class="profile-header" @click="skillsToggle =! skillsToggle">
           <img :src="dino.image"/>
           <h2>{{dino.name}}</h2>
           </header>
-          <SkillList :skillsList="skills"/>
+          <section class="skills-container" :class="{hidden: skillsToggle}">
+          <h4>Skills</h4>
+          <SkillList :skills="dino.skills"/>
+          </section>
       </div>
 </template>
 
@@ -15,7 +18,15 @@ export default {
   name: 'DinoCard',
   components: { SkillList },
   props: {
-    dino: {}
+    dino: {
+      type: Object,
+      required: true
+    }
+  },
+  data() {
+    return {
+      skillsToggle: true
+    };
   }
 };
 </script>
@@ -59,5 +70,8 @@ p {
   height: 100px;
   border: 1px solid darkgrey;
   margin: 0 10px 0 10px;
+}
+.hidden {
+  display: none;
 }
 </style>

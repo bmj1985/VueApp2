@@ -26,7 +26,7 @@ export default {
     return {
       apiURL: '../static/dinosaurs.json',
       dinoProfiles: [],
-      skillsList: []
+      skills: []
     };
   },
   mounted() {
@@ -37,8 +37,6 @@ export default {
       fetch(this.apiURL)
         .then(response => response.json())
         .then(response => {
-          console.log('response', Object.assign({}, response));
-          console.log(response);
           this.dinoProfiles = response;
         });
     }

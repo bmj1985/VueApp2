@@ -1,20 +1,17 @@
 <template>
-<div>
-  <section class="skills-container" v-for="skill in skills">
-    <h4>Skills</h4>
     <ul class="skills-list">
-      <li>{{skill}}</li>
+      <li v-for="skill in skills" :key="skill">{{skill}}</li>
    </ul>
-  </section>
-  </div>
 </template>
 
 <script>
 export default {
   name: 'SkillList',
   props: {
-    name: 'skill',
-    type: Array
+    skills: {
+      type: Array,
+      required: true
+    }
   }
 };
 </script>
