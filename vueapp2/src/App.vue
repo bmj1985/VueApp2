@@ -5,7 +5,7 @@
       <section id="profiles-container">
       <h2>Profiles</h2>
       <ul id="profiles">
-        <DinoCard v-for="dino in dinoProfiles" :dino="dino"/>
+        <DinoCard v-for="dino in dinoProfiles" :dino="dino" :key="dino.id"/>
       </ul>
     </section>
     </main>

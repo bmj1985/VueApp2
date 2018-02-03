@@ -25,5 +25,6 @@ Link to original forked repo: https://github.com/bmj1985/galvanize-dinosaurs/tre
 3. Navigate to this folder and run `npm test`.
 
 #### Deployed Link
-
+https://galvanizedinosaurstwovuejs.firebaseapp.com
 #### Framework of choice
+Vuejs (there are other frameworks???????)
